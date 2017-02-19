@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<title>Weather and Moon API Test</title>
+
+	</head>
+	<body>
+		<h1>Welcome to weather and moon api test</h1>
+        <p>Enter the latitude and the longitude of your location, or click the "Get My Location" button to let your browser to detect it. </p>
+		<p>
+			Latitude: <br><input id="latitude" type="text"><br>
+			Longitude: <br><input id="longitude" type="text"><br>
+			<button onclick="getLocation()">Get My Location</button>
+		</p>
+        
+        <h2 id="result"></h2>
+
+		<script>
+			var x = document.getElementById("result");
+			var la = document.getElementById("latitude");
+			var lo = document.getElementById("longitude");
+
+			function getLocation() {
+    			if (navigator.geolocation) {
+        			navigator.geolocation.getCurrentPosition(showPosition);
+    			} else { 
+        			x.innerHTML = "Geolocation detection failed.";
+    			}
+			}
+
+			function showPosition(position) {
+    			la.value = position.coords.latitude;
+				lo.value = position.coords.longitude;
+			}
+		</script>
+	</body>
+</html>
