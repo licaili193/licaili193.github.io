@@ -22,7 +22,7 @@
 			<button id="testAPI" onclick="getWeather()">Test API</button>
 		</p>
         
-        <h2 id="result"></h2>
+s        <h2 id="result"></h2>
 		<h2 id="moon"></h2>
 		<script>
 			var x = document.getElementById("result");
@@ -59,7 +59,7 @@
 				console.log(yahooQuery);
 				
 				moonQuery = "";
-				moonQuery += "http://api.burningsoul.in/moon/" + currentTime.getTime()/1000;
+				moonQuery += "https://api.aerisapi.com/sunmoon/moonphases?limit=4";
 				console.log(moonQuery);
 			}
 			
@@ -84,8 +84,10 @@
 				if(data == null) {mo.innerHTML = "Moon information failed.";return;}
 				
 				console.log(data);
-				moonInfo = "The percentage of illumination for today's moon is " + data.illumination + ".";
-				moonInfo += "<br>The moon is currently " + data.stage + ".";
+				moonInfo = "At" + data[0].dateTimeISO + ", the moon will be in " + data[0].name + ".";
+				moonInfo = "<br>At" + data[1].dateTimeISO + ", the moon will be in " + data[1].name + ".";
+				moonInfo = "<br>At" + data[2].dateTimeISO + ", the moon will be in " + data[2].name + ".";
+				moonInfo = "<br>At" + data[3].dateTimeISO + ", the moon will be in " + data[3].name + ".";
 				mo.innerHTML = moonInfo;
 				});
 			}
