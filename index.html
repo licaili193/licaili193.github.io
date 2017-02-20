@@ -3,6 +3,7 @@
 <html>
 	<head>
 
+		<script src="jquery-3.1.1.min.js"></script>
 		<meta charset="UTF-8">
 		<title>Weather and Moon API Test</title>
 
@@ -11,21 +12,36 @@
 		<h1>Welcome to weather and moon api test</h1>
         <p>Enter the latitude and the longitude of your location, or click the "Get My Location" button to let your browser to detect it. </p>
 		<p>
-			Latitude: <br><input id="latitude" type="text"><br>
-			Longitude: <br><input id="longitude" type="text"><br>
+			Latitude: <br><input id="latitude"><br>
+			Longitude: <br><input id="longitude"><br>
 			<button onclick="getLocation()">Get My Location</button>
+		</p>
+		
+		<p>
+			Click the "Test API" button to test API with the coordinate above.<br>
+			<button id="testAPI" onclick="getWeather()">Test API</button>
 		</p>
         
         <h2 id="result"></h2>
-
+		<h2 id="moon"></h2>
 		<script>
 			var x = document.getElementById("result");
 			var la = document.getElementById("latitude");
 			var lo = document.getElementById("longitude");
+			var mo = document.getElementById("moon");
+			
+			var yahooQuery = "";
+			var moonQuery = "";
+			var weatherInfo = "";
+			var moonInfo = "";
+			
+			var currentTime = new Date();
 
 			function getLocation() {
     			if (navigator.geolocation) {
+					x.innerHTML = "Getting coordinates..."
         			navigator.geolocation.getCurrentPosition(showPosition);
+					x.innerHTML = "";
     			} else { 
         			x.innerHTML = "Geolocation detection failed.";
     			}
@@ -34,6 +50,44 @@
 			function showPosition(position) {
     			la.value = position.coords.latitude;
 				lo.value = position.coords.longitude;
+			}
+			
+			function setQuery() {
+				yahooQuery = "";
+				weatherInfo = "";
+				yahooQuery += "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text='(" + la.value + "," + lo.value + ")')&format=json";
+				console.log(yahooQuery);
+				
+				moonQuery = "";
+				moonQuery += "http://api.burningsoul.in/moon/" + currentTime.getTime()/1000;
+				console.log(moonQuery);
+			}
+			
+			function getWeather() {
+				mo.innerHTML = "";
+				x.innerHTML = "Querying...";
+				
+				setQuery();
+				
+				$.get(yahooQuery, function (data) {
+				if(!data||data.query.results == null) {x.innerHTML = "Weather information failed.";return;}
+				
+				console.log(data);
+				weatherInfo = "The provided coordinate is in " + data.query.results.channel.location.city + ", " + data.query.results.channel.location.region + " " + data.query.results.channel.location.country + ".";
+				weatherInfo += "<br>Current date & time is " + currentTime + ".";
+				weatherInfo += "<br>Weather: " + data.query.results.channel.item.condition.text + ".";
+				weatherInfo += "<br>temperature: " + data.query.results.channel.item.condition.temp + " " + data.query.results.channel.units.temperature + ".";
+				x.innerHTML = weatherInfo;
+				});
+				
+				$.get(moonQuery, function (data) {
+				if(data == null) {mo.innerHTML = "Moon information failed.";return;}
+				
+				console.log(data);
+				moonInfo = "The percentage of illumination for today's moon is " + data.illumination + ".";
+				moonInfo += "<br>The moon is currently " + data.stage + ".";
+				mo.innerHTML = moonInfo;
+				});
 			}
 		</script>
 	</body>
