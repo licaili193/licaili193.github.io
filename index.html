@@ -81,13 +81,13 @@
 				});
 				
 				$.get(moonQuery, function (data) {
-				if(data == null) {mo.innerHTML = "Moon information failed.";return;}
+				if(data.error != null) {mo.innerHTML = "Moon information failed.";return;}
 				
 				console.log(data);
-				moonInfo = "At" + data[0].dateTimeISO + ", the moon will be in " + data[0].name + ".";
-				moonInfo = "<br>At" + data[1].dateTimeISO + ", the moon will be in " + data[1].name + ".";
-				moonInfo = "<br>At" + data[2].dateTimeISO + ", the moon will be in " + data[2].name + ".";
-				moonInfo = "<br>At" + data[3].dateTimeISO + ", the moon will be in " + data[3].name + ".";
+				moonInfo = "At" + data.response[0].dateTimeISO + ", the moon will be in " + data.response[0].name + ".";
+				moonInfo = "<br>At" + data.response[1].dateTimeISO + ", the moon will be in " + data.response[1].name + ".";
+				moonInfo = "<br>At" + data.response[2].dateTimeISO + ", the moon will be in " + data.response[2].name + ".";
+				moonInfo = "<br>At" + data.response[3].dateTimeISO + ", the moon will be in " + data.response[3].name + ".";
 				mo.innerHTML = moonInfo;
 				});
 			}
