@@ -36,24 +36,23 @@
 
         //this function is in the event listener and will execute on page load
         function get_json_data(){
-            // Relative URL of external json file
-            var json_url = 'data.json';
-
-            //Build the XMLHttpRequest (aka AJAX Request)
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() { 
-                if (this.readyState == 4 && this.status == 200) {//when a good response is given do this
-
-                    var data = JSON.parse(this.responseText); // convert the response to a json object
-                    append_json(data);// pass the json object to the append_json function
-                }
-            }
-            //set the request destination and type
-            xmlhttp.open("POST", json_url, true);
-            //set required headers for the request
-            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            // send the request
-            xmlhttp.send(); // when the request completes it will execute the code in onreadystatechange section
+			var data = 
+				[
+					{ "INDEX":"1", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,990", "AVAILABLE":"未知", "LINK":"data/MLS_94552_2000EdwinMarkhamDr.pdf" },
+					{ "INDEX":"2", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25757+Durrwood+Ct.pdf" },
+					{ "INDEX":"3", "LOCATION":"卡斯罗山谷", "PRICE":"$1,099,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25218CenturyOaksCir.pdf" },
+					{ "INDEX":"4", "LOCATION":"都柏林", "PRICE":"$949,000", "AVAILABLE":"未知", "LINK":"data/MLS_94586_Dublin_4666MyrtleDr" },
+					{ "INDEX":"5", "LOCATION":"普莱斯顿", "PRICE":"$1,200,000", "AVAILABLE":"未知", "LINK":"data/MLS_94566_Pleasanton_2678+Sanderling+Way.pdf" },
+					{ "INDEX":"6", "LOCATION":"弗里蒙特", "PRICE":"$1,098,000", "AVAILABLE":"未知", "LINK":"data/MLS_94555_4448DarwinDr_20200810.pdf" },
+					{ "INDEX":"7", "LOCATION":"圣塔克拉拉", "PRICE":"$1,150,000", "AVAILABLE":"未知", "LINK":"MLS_94089_974+Bridgewood+Way.pdf" },
+					{ "INDEX":"8", "LOCATION":"桑尼维尔", "PRICE":"$1,250,000", "AVAILABLE":"未知", "LINK":"data/MLS_94089_315+Meadowlake+Drive.pdf" },
+					{ "INDEX":"9", "LOCATION":"圣塔克拉拉", "PRICE":"$1,199,999", "AVAILABLE":"未知", "LINK":"data/MLS_94089_1399+Sandia+Avenue.pdf" },
+					{ "INDEX":"10", "LOCATION":"桑尼维尔", "PRICE":"$1,249,000", "AVAILABLE":"未知", "LINK":"data/MLS_94089_1101PalamosAve_Feb2020.pdf" },
+					{ "INDEX":"11", "LOCATION":"弗里蒙特", "PRICE":"$$1,248,800", "AVAILABLE":"未知", "LINK":"data/MLS_94555_33864+Capulet+Cir.pdf" },
+					{ "INDEX":"12", "LOCATION":"普莱斯顿", "PRICE":"$1,189,950", "AVAILABLE":"未知", "LINK":"data/MLS_94566_Pleasanton_3820StanleyBlvd.pdf" },
+					{ "INDEX":"13", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25757+Durrwood+Ct.pdf" }
+				]
+			append_json(data);
         }
 
         //this function appends the json data to the table 'gable'
@@ -65,7 +64,7 @@
                 '<td>' + object.LOCATION + '</td>' +
                 '<td>' + object.PRICE + '</td>' +
                 '<td>' + object.AVAILABLE + '</td>' +
-				'<td>' + object.LINK + '</td>';
+				'<td> <a href="' + object.LINK + '">链接</a> </td>';
                 table.appendChild(tr);
             });
         }
