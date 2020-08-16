@@ -20,10 +20,13 @@
 		<thead>
 		  <tr>
 			<th class="tg-1wig">序号</th>
+			<th class="tg-1wig">图片</th>
 			<th class="tg-1wig">地点</th>
 			<th class="tg-1wig">价格</th>
 			<th class="tg-1wig">是否上市</th>
 			<th class="tg-1wig">详细资料</th>
+			<th class="tg-1wig">看房时间</th>
+			<th class="tg-1wig">备注</th>
 		  </tr>
 		</thead>
 		<tbody id="gable">
@@ -38,19 +41,19 @@
         function get_json_data(){
 			var data = 
 				[
-					{ "INDEX":"1", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,990", "AVAILABLE":"未知", "LINK":"data/MLS_94552_2000EdwinMarkhamDr.pdf" },
-					{ "INDEX":"2", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25757+Durrwood+Ct.pdf" },
-					{ "INDEX":"3", "LOCATION":"卡斯罗山谷", "PRICE":"$1,099,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25218CenturyOaksCir.pdf" },
-					{ "INDEX":"4", "LOCATION":"都柏林", "PRICE":"$949,000", "AVAILABLE":"未知", "LINK":"data/MLS_94586_Dublin_4666MyrtleDr" },
-					{ "INDEX":"5", "LOCATION":"普莱斯顿", "PRICE":"$1,200,000", "AVAILABLE":"未知", "LINK":"data/MLS_94566_Pleasanton_2678+Sanderling+Way.pdf" },
-					{ "INDEX":"6", "LOCATION":"弗里蒙特", "PRICE":"$1,098,000", "AVAILABLE":"未知", "LINK":"data/MLS_94555_4448DarwinDr_20200810.pdf" },
-					{ "INDEX":"7", "LOCATION":"圣塔克拉拉", "PRICE":"$1,150,000", "AVAILABLE":"未知", "LINK":"MLS_94089_974+Bridgewood+Way.pdf" },
-					{ "INDEX":"8", "LOCATION":"桑尼维尔", "PRICE":"$1,250,000", "AVAILABLE":"未知", "LINK":"data/MLS_94089_315+Meadowlake+Drive.pdf" },
-					{ "INDEX":"9", "LOCATION":"圣塔克拉拉", "PRICE":"$1,199,999", "AVAILABLE":"未知", "LINK":"data/MLS_94089_1399+Sandia+Avenue.pdf" },
-					{ "INDEX":"10", "LOCATION":"桑尼维尔", "PRICE":"$1,249,000", "AVAILABLE":"未知", "LINK":"data/MLS_94089_1101PalamosAve_Feb2020.pdf" },
-					{ "INDEX":"11", "LOCATION":"弗里蒙特", "PRICE":"$$1,248,800", "AVAILABLE":"未知", "LINK":"data/MLS_94555_33864+Capulet+Cir.pdf" },
-					{ "INDEX":"12", "LOCATION":"普莱斯顿", "PRICE":"$1,189,950", "AVAILABLE":"未知", "LINK":"data/MLS_94566_Pleasanton_3820StanleyBlvd.pdf" },
-					{ "INDEX":"13", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25757+Durrwood+Ct.pdf" }
+					{ "INDEX":"1", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,990", "AVAILABLE":"未知", "LINK":"data/MLS_94552_2000EdwinMarkhamDr.pdf", "IMAGE":"pic/M1.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"2", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25757+Durrwood+Ct.pdf", "IMAGE":"pic/M2.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"3", "LOCATION":"卡斯罗山谷", "PRICE":"$1,099,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25218CenturyOaksCir.pdf", "IMAGE":"pic/M3.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"4", "LOCATION":"都柏林", "PRICE":"$949,000", "AVAILABLE":"未知", "LINK":"data/MLS_94586_Dublin_4666MyrtleDr", "IMAGE":"pic/M4.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"5", "LOCATION":"普莱斯顿", "PRICE":"$1,200,000", "AVAILABLE":"未知", "LINK":"data/MLS_94566_Pleasanton_2678+Sanderling+Way.pdf", "IMAGE":"pic/M5.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"6", "LOCATION":"弗里蒙特", "PRICE":"$1,098,000", "AVAILABLE":"未知", "LINK":"data/MLS_94555_4448DarwinDr_20200810.pdf", "IMAGE":"pic/M6.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"7", "LOCATION":"圣塔克拉拉", "PRICE":"$1,150,000", "AVAILABLE":"未知", "LINK":"MLS_94089_974+Bridgewood+Way.pdf", "IMAGE":"pic/M7.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"8", "LOCATION":"桑尼维尔", "PRICE":"$1,250,000", "AVAILABLE":"未知", "LINK":"data/MLS_94089_315+Meadowlake+Drive.pdf", "IMAGE":"pic/M8.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"9", "LOCATION":"圣塔克拉拉", "PRICE":"$1,199,999", "AVAILABLE":"未知", "LINK":"data/MLS_94089_1399+Sandia+Avenue.pdf", "IMAGE":"pic/M9.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"10", "LOCATION":"桑尼维尔", "PRICE":"$1,249,000", "AVAILABLE":"未知", "LINK":"data/MLS_94089_1101PalamosAve_Feb2020.pdf", "IMAGE":"pic/M10.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"11", "LOCATION":"弗里蒙特", "PRICE":"$$1,248,800", "AVAILABLE":"未知", "LINK":"data/MLS_94555_33864+Capulet+Cir.pdf", "IMAGE":"pic/M11.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"12", "LOCATION":"普莱斯顿", "PRICE":"$1,189,950", "AVAILABLE":"未知", "LINK":"data/MLS_94566_Pleasanton_3820StanleyBlvd.pdf", "IMAGE":"pic/M12.png", "VISIT":"无", "COMMENT":"" },
+					{ "INDEX":"13", "LOCATION":"卡斯罗山谷", "PRICE":"$1,299,000", "AVAILABLE":"未知", "LINK":"data/MLS_94552_25757+Durrwood+Ct.pdf", "IMAGE":"pic/M13.png", "VISIT":"无", "COMMENT":"" }
 				]
 			append_json(data);
         }
@@ -61,10 +64,13 @@
             data.forEach(function(object) {
                 var tr = document.createElement('tr');
                 tr.innerHTML = '<td>' + object.INDEX + '</td>' +
+				'<td> <img src="' + object.IMAGE +'" style="max-width:100px;width:100%"></img> </td>' +
                 '<td>' + object.LOCATION + '</td>' +
                 '<td>' + object.PRICE + '</td>' +
                 '<td>' + object.AVAILABLE + '</td>' +
-				'<td> <a href="' + object.LINK + '">链接</a> </td>';
+				'<td> <a href="' + object.LINK + '">链接</a> </td>' + 
+				'<td>' + object.VISIT + '</td>' +
+				'<td>' + object.COMMENT + '</td>';
                 table.appendChild(tr);
             });
         }
