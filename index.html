@@ -10,95 +10,41 @@
 	</head>
 	<body>
 		<h1>Welcome to weather and moon api test</h1>
-        	<p>Enter the latitude and the longitude of your location, or click the "Get My Location" button to let your browser to detect it. </p>
-		<p>
-			Coordinates for some places in latitude and longitude:<br>
-			Stockholm: 59.3293, 18.0686<br>
-			New York: 40.7128, -74.0059<br>
-			Hong Kong: 22.3964, 114.1095<br>
-			Berlin: 52.5200, 13.4050<br>
-			London: 51.5074, 0.1278<br>
-		</p>
-		<p>
-			Latitude: <br><input id="latitude"><br>
-			Longitude: <br><input id="longitude"><br>
-			<button onclick="getLocation()">Get My Location</button>
-		</p>
-		
-		<p>
-			Click the "Test API" button to test API with the coordinate above.<br>
-			<button id="testAPI" onclick="getWeather()">Test API</button>
-		</p>
-        
-        <h2 id="result"></h2>
-		<h2 id="moon"></h2>
-		<script>
-			var x = document.getElementById("result");
-			var la = document.getElementById("latitude");
-			var lo = document.getElementById("longitude");
-			var mo = document.getElementById("moon");
-			
-			var yahooQuery = "";
-			var moonQuery = "";
-			var weatherInfo = "";
-			var moonInfo = "";
-			
-			var currentTime = new Date();
-
-			function getLocation() {
-    			if (navigator.geolocation) {
-					x.innerHTML = "Getting coordinates..."
-        			navigator.geolocation.getCurrentPosition(showPosition);
-					x.innerHTML = "";
-    			} else { 
-        			x.innerHTML = "Geolocation detection failed.";
-    			}
-			}
-
-			function showPosition(position) {
-    			la.value = position.coords.latitude;
-				lo.value = position.coords.longitude;
-			}
-			
-			function setQuery() {
-				yahooQuery = "";
-				weatherInfo = "";
-				yahooQuery += "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text='(" + la.value + "," + lo.value + ")')&format=json";
-				console.log(yahooQuery);
-				
-				moonQuery = "";
-				moonQuery += "https://api.aerisapi.com/sunmoon/moonphases?client_id=36CfzYMAQm7v32rfRww5O&client_secret=YJ2boFUu9CkiotF66f7YTF9MWgub8lNJ3w8v1ctj&limit=4";
-				console.log(moonQuery);
-			}
-			
-			function getWeather() {
-				mo.innerHTML = "";
-				x.innerHTML = "Querying...";
-				
-				setQuery();
-				
-				$.get(yahooQuery, function (data) {
-				if(!data||data.query.results == null) {x.innerHTML = "Weather information failed.";return;}
-				
-				console.log(data);
-				weatherInfo = "The provided coordinate is in " + data.query.results.channel.location.city + ", " + data.query.results.channel.location.region + " " + data.query.results.channel.location.country + ".";
-				weatherInfo += "<br>Current date & time is " + currentTime + ".";
-				weatherInfo += "<br>Weather: " + data.query.results.channel.item.condition.text + ".";
-				weatherInfo += "<br>temperature: " + data.query.results.channel.item.condition.temp + " " + data.query.results.channel.units.temperature + ".";
-				x.innerHTML = weatherInfo;
-				});
-				
-				$.get(moonQuery, function (data) {
-				if(data.error != null) {mo.innerHTML = "Moon information failed.";return;}
-				
-				console.log(data);
-				moonInfo = "At " + data.response[0].dateTimeISO + ", the moon will be in " + data.response[0].name + ".";
-				moonInfo += "<br>At " + data.response[1].dateTimeISO + ", the moon will be in " + data.response[1].name + ".";
-				moonInfo += "<br>At " + data.response[2].dateTimeISO + ", the moon will be in " + data.response[2].name + ".";
-				moonInfo += "<br>At " + data.response[3].dateTimeISO + ", the moon will be in " + data.response[3].name + ".";
-				mo.innerHTML = moonInfo;
-				});
-			}
-		</script>
+        <style type="text/css">
+		.tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
+		.tg td{background-color:#EBF5FF;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#444;
+		  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+		.tg th{background-color:#409cff;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#fff;
+		  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+		.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+		.tg .tg-0lax{text-align:left;vertical-align:top}
+		</style>
+		<table class="tg">
+		<thead>
+		  <tr>
+			<th class="tg-1wig">序号</th>
+			<th class="tg-1wig">地点</th>
+			<th class="tg-1wig">价格</th>
+			<th class="tg-1wig">是否上市</th>
+			<th class="tg-1wig">详细资料</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+			<td class="tg-0lax"></td>
+		  </tr>
+		</tbody>
+		</table>
 	</body>
 </html>
