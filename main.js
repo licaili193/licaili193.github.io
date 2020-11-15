@@ -5,7 +5,7 @@ var cardIndex = 0;
 
 function isAtPage(page) {
     const delta = document.body.scrollHeight / 3;
-    return page * delta == document.body.scrollTop;
+    return page * delta <= document.body.scrollTop && (page + 1 ) * delta > document.body.scrollTop;
 }
 
 function loadPage(page) {
