@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 html {
     height: 100vh;
     overflow: hidden
@@ -6,7 +13,8 @@ html {
 body {
     font-family: 'Montserrat';
     margin: 0;
-    scroll-snap-type: y mandatory;
+    -ms-scroll-snap-type: y mandatory;
+        scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scrollbar-width: none;
     height: 100vh;
@@ -34,23 +42,39 @@ p {
 }
 
 header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 1em 10%;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1;
     background: white;
-    box-shadow: 0 0 10px #A0A0A0;
+    -webkit-box-shadow: 0 0 10px #A0A0A0;
+            box-shadow: 0 0 10px #A0A0A0;
 }
 
 .model-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -60,9 +84,16 @@ header {
 }
 
 .model-container div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 2em;
     width: 100vw;
 }
@@ -77,12 +108,15 @@ header {
     margin-bottom: 4em;
     width: auto;
     height: 20vh;
+    -o-transition: .2s;
     transition: .2s;
     -webkit-transition: .2s;
 }
 
 .model-container div button:hover { 
-    transform: scale(3.0) translate(0, -5vh);
+    -webkit-transform: scale(3.0) translate(0, -5vh); 
+        -ms-transform: scale(3.0) translate(0, -5vh); 
+            transform: scale(3.0) translate(0, -5vh);
 }
 
 .model-image {
@@ -118,16 +152,21 @@ header {
     padding: 0;
     width: 4em;
     height: 4em;
+    -o-transition: .2s;
     transition: .2s;
     -webkit-transition: .2s;
 }
 
 .card button:hover { 
-    transform: rotate(720deg);
+    -webkit-transform: rotate(720deg); 
+        -ms-transform: rotate(720deg); 
+            transform: rotate(720deg);
 }
 
 .card button:active { 
-    transform: scale(0.9);
+    -webkit-transform: scale(0.9); 
+        -ms-transform: scale(0.9); 
+            transform: scale(0.9);
 }
 
 .card button img {
@@ -146,6 +185,8 @@ header {
 }
 
 .nav-bar ul li a {
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     color: #101010;
     text-decoration: none;
