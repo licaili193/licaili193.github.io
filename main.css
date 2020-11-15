@@ -1,0 +1,165 @@
+html {
+    height: 100vh;
+    overflow: hidden
+}
+
+body {
+    font-family: 'Montserrat';
+    margin: 0;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    height: 100vh;
+}
+
+body::-webkit-scrollbar { 
+    display: none;
+}
+
+section {
+    padding: 4em;
+    height: calc(100vh - 8em);
+    color: #101010;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+}
+
+h3 {
+    font-size: 3em;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 10%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: white;
+    box-shadow: 0 0 10px #A0A0A0;
+}
+
+.model-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.model-container div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2em;
+    width: 100vw;
+}
+
+.model-container div button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-left: min(5%, 2vw);
+    margin-right: min(5%, 2vw);
+    width: auto;
+    height: 20vh;
+    transition: .2s;
+    -webkit-transition: .2s;
+}
+
+.model-container div button:hover { 
+    transform: scale(3.0) translate(0, -5vh);
+}
+
+.model-image {
+    height: 20vh;
+    width: auto;
+}
+
+.card {
+    height: 40vh;
+    width: 53vh;
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 20vh;
+    left: 0;
+    right: 0;
+}
+
+.card img {
+    display: block;
+    height: 100%;
+    margin: auto;
+}
+
+.card button {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 4em;
+    height: 4em;
+    transition: .2s;
+    -webkit-transition: .2s;
+}
+
+.card button:hover { 
+    transform: rotate(720deg);
+}
+
+.card button:active { 
+    transform: scale(0.9);
+}
+
+.card button img {
+    -webkit-filter: drop-shadow(2px 2px 5px #222);
+    filter: drop-shadow(2px 2px 5px #222);
+}
+
+.nav-bar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-bar ul li {
+    display: inline-block;
+    padding: 0 2em;
+}
+
+.nav-bar ul li a {
+    transition: all 0.3s ease 0s;
+    color: #101010;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-bar ul li a:hover {
+    color: #606060;
+}
+
+#portrait {
+    display: block;
+    width: auto;
+    height: 90%;
+    position: absolute;
+    top: 7em;
+    left: 50vw;
+}
