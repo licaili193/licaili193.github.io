@@ -74,7 +74,7 @@ header {
     padding: 0;
     margin-left: min(5%, 2vw);
     margin-right: min(5%, 2vw);
-    margin-bottom: 4em;
+    margin-bottom: 8vh;
     width: auto;
     height: 20vh;
     transition: .2s;
@@ -91,13 +91,13 @@ header {
 }
 
 .card {
-    height: 30vh;
-    width: 40vh;
+    height: min(54vh, 67.5vw);
+    width: min(72vh, 90vw);
     display: block;
     position: absolute;
     margin: auto;
     top: 0;
-    bottom: 20vh;
+    bottom: 15vh;
     left: 0;
     right: 0;
 }
