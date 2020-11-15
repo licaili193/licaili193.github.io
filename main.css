@@ -74,6 +74,7 @@ header {
     padding: 0;
     margin-left: min(5%, 2vw);
     margin-right: min(5%, 2vw);
+    margin-bottom: 4em;
     width: auto;
     height: 20vh;
     transition: .2s;
@@ -109,7 +110,7 @@ header {
 
 .card button {
     position: absolute;
-    bottom: 4em;
+    bottom: 1em;
     right: 1em;
     background-color: transparent;
     border: none;
