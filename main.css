@@ -90,8 +90,8 @@ header {
 }
 
 .card {
-    height: 40vh;
-    width: 53vh;
+    height: 30vh;
+    width: 40vh;
     display: block;
     position: absolute;
     margin: auto;
@@ -109,7 +109,7 @@ header {
 
 .card button {
     position: absolute;
-    bottom: 1em;
+    bottom: 4em;
     right: 1em;
     background-color: transparent;
     border: none;
