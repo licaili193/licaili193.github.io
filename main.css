@@ -91,8 +91,8 @@ header {
 }
 
 .card {
-    height: min(54vh, 67.5vw);
-    width: min(72vh, 90vw);
+    height: 60vmin;
+    width: 80vmin;
     display: block;
     position: absolute;
     margin: auto;
