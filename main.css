@@ -74,7 +74,7 @@ header {
     padding: 0;
     margin-left: min(5%, 2vw);
     margin-right: min(5%, 2vw);
-    margin-bottom: 8vh;
+    margin-bottom: 4em;
     width: auto;
     height: 20vh;
     transition: .2s;
@@ -97,7 +97,7 @@ header {
     position: absolute;
     margin: auto;
     top: 0;
-    bottom: 15vh;
+    bottom: 0;
     left: 0;
     right: 0;
 }
