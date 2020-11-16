@@ -33,8 +33,14 @@ section {
     overflow: hidden;
 }
 
+h2 {
+    font-size: 4em;
+    line-height: normal;
+}
+
 h3 {
-    font-size: 3em;
+    font-size: 2em;
+    line-height: normal;
 }
 
 p {
@@ -203,5 +209,26 @@ header {
     height: 90%;
     position: absolute;
     top: 7em;
-    left: 50vw;
+    left: 40vw;
+}
+
+#first-name {
+    display: block;
+    position: absolute;
+    top: 20vh;
+    left: 30vw;
+}
+
+#last-name {
+    display: block;
+    position: absolute;
+    top: calc(20vh + 3em);
+    left: calc(30vw + 2em);
+}
+
+#introduction {
+    display: block;
+    position: absolute;
+    top: calc(20vh + 8em);
+    left: calc(30vw - 2em);
 }
