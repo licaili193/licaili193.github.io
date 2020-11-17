@@ -47,7 +47,7 @@ class SlideCard {
         for (i of [1, 2, 3, 4]) {
             var card = "<div class='card animate__animated' id='" + this.getCardName(i) + "'>\
                        <button><img src='resources/icons/button.png'></button>\
-                       <img src='resources/images/dummy_page_3.png'></div>";
+                       <img src='resources/images/card-" + String(i) + "-0.png'></div>";
             $("#" + parent).append(card);
             $("#" + this.getCardName(i)).css("visibility", "hidden");
         }

@@ -128,6 +128,8 @@ header {
 .model-image {
     height: 20vh;
     width: auto;
+    -webkit-filter: drop-shadow(2px 2px 1px #888);
+    filter: drop-shadow(2px 2px 1px #888);
 }
 
 .card {
@@ -146,6 +148,8 @@ header {
     display: block;
     height: 100%;
     margin: auto;
+    -webkit-filter: drop-shadow(2px 2px 1px #888);
+    filter: drop-shadow(2px 2px 1px #888);
 }
 
 .card button {
@@ -161,6 +165,7 @@ header {
     -o-transition: .2s;
     transition: .2s;
     -webkit-transition: .2s;
+    z-index: 1;
 }
 
 .card button:hover { 
