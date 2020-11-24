@@ -9,29 +9,14 @@
     <link rel="stylesheet" type="text/css" href="page.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
-    <script>
-        let folder = "../resources/images/gallary";
-        $.ajax({
-            url : folder,
-            success: function (data) {
-                $(data).find("a").attr("href", function (i, val) {
-                    if( val.match(/\.(jpe?g|png|gif)$/) ) {
-                        $("#main-container").append( 
-                            "<div class='grid-item'>\
-                                <img src='"+ val +"'>\
-                            </div>"    
-                        );
-                    } 
-                });
-            }
-        });
-    </script>
 </head>
 <body>
     <div class="container">
         <h1>Spoilded Kids</h1>
-
+        <div id="image-viewer">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="full-image">
+        </div>
         <div class="grid" id="main-container">
             <div class="grid-col grid-col--1"></div>
             <div class="grid-col grid-col--2"></div>
@@ -42,9 +27,15 @@
 
     <script src="https://unpkg.com/colcade@0/colcade.js"></script>
     <script>
-        var colc = new Colcade( '.grid', {
-        columns: '.grid-col',
-        items: '.grid-item'
-        });
+        let folder = "../resources/images/gallary/";
+        var files = 
+            ['0_ihTZPO4iffJ8n69_.jpg',
+            '0_wZAcNrIWFFjuJA78.jpg',
+            'faded-monaco-scenery-evening-dark-picjumbo-com-image.jpg',
+            'grapefruit-slice-332-332.jpg',
+            'image-5.jpg',
+            'image-analysis.png',
+            'Sample-jpg-image-500kb.jpg'];
     </script>
+    <script src="page.js"></script>
 </body>
