@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 body {
     margin: 0;
     font-family: 'Montserrat';
@@ -9,11 +16,17 @@ h1 {
 
 img {
     width: 100%;
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    -o-transition: transform .2s;
     transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
 }
 
 img:hover {
-    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2);
     -webkit-filter: drop-shadow(2px 2px 5px #222);
     filter: drop-shadow(2px 2px 5px #222);
 }
@@ -24,11 +37,15 @@ img:hover {
 }
 
 .grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .grid-col {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     padding: 0 .1em;
 }
 
@@ -37,6 +54,8 @@ img:hover {
 }
 
 .grid-item {
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
     transition: all 1s;
 }
 
