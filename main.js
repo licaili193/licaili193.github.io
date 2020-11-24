@@ -1,5 +1,5 @@
-var previousPage = -1;
-var currentPage = -1;
+var previousPage = 0;
+var currentPage = 0;
 
 var cardIndex = 0;
 
@@ -10,8 +10,6 @@ function isAtPage(page) {
 
 function loadPage(page) {
     if (page == 0) {
-
-    } else if (page == 1) {
         var effects = "animate__animated animate__fadeInDown";
 
         $("#model-buttons").css("visibility", "visible");
@@ -19,6 +17,8 @@ function loadPage(page) {
         $("#model-buttons").on('animationend', () => {
             $("#model-buttons").removeClass(effects);
         });
+    } else if (page == 1) {
+        
     } else if (page == 2) {
 
     }
@@ -26,9 +26,9 @@ function loadPage(page) {
 
 function leavePage(page) {
     if (page == 0) {
-
-    } else if (page == 1) {
         $("#model-buttons").css("visibility", "hidden");
+    } else if (page == 1) {
+        
     } else if (page == 2) {
 
     }
@@ -115,7 +115,7 @@ class SlideCard {
 }
 
 $(document).ready(function() {
-    let cards = new SlideCard("section-2");
+    let cards = new SlideCard("section-1");
 
     $(".model-button").hover(function() {
         if ($(this).is(":hover")) {
@@ -133,7 +133,7 @@ $(document).ready(function() {
         event.stopPropagation();
     });
 
-    $("#section-2").click(function() {
+    $("#section-1").click(function() {
         cards.hideAll();
     });
 
@@ -161,4 +161,6 @@ $(document).ready(function() {
             previousPage = currentPage;
         }
     });
+
+    loadPage(0);
 });

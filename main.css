@@ -228,13 +228,30 @@ header {
     width: 100%;
     margin-left: -4em;
     bottom: 0;
+}
+
+.dark-bg {
     background: #181818;
 }
 
-.footer p {
-    color: white;
+.footer a {
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    color: lightgray;
+}
+
+.footer a:hover {
+    color: #181818;
+}
+
+.dark-bg p {
     text-align: center;
     font-weight: bold;
+    color: white;
 }
 
 #portrait {
