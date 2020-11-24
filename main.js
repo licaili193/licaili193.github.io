@@ -44,9 +44,15 @@ class SlideCard {
         this.showTable = [false, false, false, false];
 
         var i = 0;
+        var links = {
+            "slidecard__card-1": "pages/project-orlando.html", 
+            "slidecard__card-2": "pages/project-in-the-next-room.html", 
+            "slidecard__card-3": "pages/project-spoiled-kids.html", 
+            "slidecard__card-4": "pages/project-the-misanthrope.html",
+        };
         for (i of [1, 2, 3, 4]) {
             var card = "<div class='card animate__animated' id='" + this.getCardName(i) + "'>\
-                       <button><img src='resources/icons/button.png'></button>\
+                       <button class='card-button'><img src='resources/icons/button.png'></button>\
                        <img src='resources/images/card-" + String(i) + "-0.png'></div>";
             $("#" + parent).append(card);
             $("#" + this.getCardName(i)).css("visibility", "hidden");
@@ -54,6 +60,11 @@ class SlideCard {
 
         $(".card").click(function(event) {
             event.stopPropagation();
+        });
+
+        $(".card-button").click(function(event) {
+            var id = $(this).parent().attr('id');
+            window.open(links[id]);
         });
     }
 

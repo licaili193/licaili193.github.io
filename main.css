@@ -142,12 +142,22 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
+    border-radius: 25px;
+    background: #AAAAAA55;
+    filter: drop-shadow(2px 2px 1px #AAA);
+    -webkit-filter: drop-shadow(2px 2px 1px #AAA);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .card img {
-    display: block;
-    height: 100%;
-    margin: auto;
+    position: absolute;
+    width: 80vmin;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     -webkit-filter: drop-shadow(2px 2px 1px #888);
     filter: drop-shadow(2px 2px 1px #888);
 }
@@ -166,6 +176,11 @@ header {
     transition: .2s;
     -webkit-transition: .2s;
     z-index: 1;
+}
+
+.card button img {
+    width: 4em;
+    height: 4em;
 }
 
 .card button:hover { 
@@ -208,6 +223,20 @@ header {
     color: #606060;
 }
 
+.footer {
+    position: absolute;
+    width: 100%;
+    margin-left: -4em;
+    bottom: 0;
+    background: #181818;
+}
+
+.footer p {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
 #portrait {
     display: block;
     width: auto;
@@ -236,4 +265,13 @@ header {
     position: absolute;
     top: calc(20vh + 8em);
     left: calc(30vw - 2em);
+}
+
+#p2-introduction {
+    display: block;
+    position: absolute;
+    white-space: nowrap;
+    top: 60vh;
+    left: 50%;
+    transform: translate(-50%);
 }
