@@ -17,16 +17,31 @@
 <body>
     <header>
         <nav class="nav-bar">
-            <ul>
+            <ul class="menu-visiable-wide">
                 <li><img src="resources/images/sign-2.png"></img></li>
                 <li><a href="#section-1">Design</a></li>
                 <li><a href="#section-2">Work</a></li>
                 <li><a href="#section-3">Info</a></li>
             </ul>
+            <ul class="menu-visiable-narrow">
+                <li class="drop-down">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                            <path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                        </svg>
+                    </a>
+                    <ul>
+                        <li><a href="#section-1">Design</a></li>
+                        <li><a href="#section-2">Work</a></li>
+                        <li><a href="#section-3">Info</a></li>
+                    </ul>
+                </li>
+                <li><img src="resources/images/sign-2.png"></img></li>
+            </ul>
         </nav>
     </header>
     <section id="section-1">
-        <div class="bounder animate__animated animate__bounce animate__infinite animate__slow" >
+        <div class="bounder animate__animated animate__bounce animate__repeat-2 animate__delay-5s animate__slow" >
             <div>
                 <p>
                     👇 Explore my design for movies and plays 👇
