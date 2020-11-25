@@ -57,7 +57,7 @@ header {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 1em 10%;
+    padding: 0.4em 10%;
     position: fixed;
     top: 0;
     width: 100%;
@@ -109,24 +109,24 @@ header {
     border: none;
     outline: none;
     padding: 0;
-    margin-left: min(5%, 2vw);
-    margin-right: min(5%, 2vw);
+    margin-left: min(calc(5vw - 40px), 20px);
+    margin-right: min(calc(5vw - 40px), 20px);
     margin-bottom: 4em;
     width: auto;
-    height: 20vh;
+    height: 30vh;
     -o-transition: .2s;
     transition: .2s;
     -webkit-transition: .2s;
 }
 
 .model-container div button:hover { 
-    -webkit-transform: scale(3.0) translate(0, -5vh); 
-        -ms-transform: scale(3.0) translate(0, -5vh); 
-            transform: scale(3.0) translate(0, -5vh);
+    -webkit-transform: scale(2.5) translate(0, -5vh); 
+        -ms-transform: scale(2.5) translate(0, -5vh); 
+            transform: scale(2.5) translate(0, -5vh);
 }
 
 .model-image {
-    height: 20vh;
+    height: 30vh;
     width: auto;
     -webkit-filter: drop-shadow(2px 2px 1px #888);
     filter: drop-shadow(2px 2px 1px #888);
@@ -200,6 +200,12 @@ header {
     filter: drop-shadow(2px 2px 5px #222);
 }
 
+.nav-bar img {
+    height: 3.0em;
+    margin-top: -1.2em;
+    margin-bottom: -1.2em;
+}
+
 .nav-bar ul {
     list-style: none;
     padding: 0;
@@ -245,13 +251,44 @@ header {
 }
 
 .footer a:hover {
-    color: #181818;
+    color: #A0A0A0;
 }
 
 .dark-bg p {
     text-align: center;
     font-weight: bold;
     color: white;
+}
+
+.bounder {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: 53vh;
+}
+
+.bounder div {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.bounder div p {
+    text-align: center;
+    white-space: nowrap;
+    background: #5F0000A0;
+    color: white;
+    padding: 0.4em;
+    border-radius: 1em;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .bounder div p {
+        font-size: 0.8em;
+    }
 }
 
 #portrait {
@@ -282,15 +319,4 @@ header {
     position: absolute;
     top: calc(20vh + 8em);
     left: calc(30vw - 2em);
-}
-
-#p2-introduction {
-    display: block;
-    position: absolute;
-    white-space: nowrap;
-    top: 60vh;
-    left: 50%;
-    -webkit-transform: translate(-50%);
-        -ms-transform: translate(-50%);
-            transform: translate(-50%);
 }
