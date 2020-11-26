@@ -11,8 +11,8 @@ var TxtRotate = function(el, toRotate, period) {
   TxtRotate.prototype.tick = function() {
     var i = this.loopNum % this.toRotate.length;
     var fullTxt = this.toRotate[i];
-    var quarterRemainPeriod = this.period / 8;
-    var quarterTypePeriod = this.period / 8 / (fullTxt.length - 1);
+    var quarterRemainPeriod = 3 * this.period / 16;
+    var halfTypePeriod = this.period / 8 / fullTxt.length;
   
     if (this.isDeleting) {
       this.txt = fullTxt.substring(0, this.txt.length - 1);
@@ -23,16 +23,10 @@ var TxtRotate = function(el, toRotate, period) {
     this.el.innerHTML = '<span class="wrap">' + this.txt+'</span>';
   
     var that = this;
-    var delta = 0;
-  
-    if (this.isDeleting) {
-        delta = quarterTypePeriod; 
-    } else {
-        delta = quarterTypePeriod;
-    }
+    var delta = halfTypePeriod;
   
     if (!this.isDeleting && this.txt === fullTxt) {
-      delta = 5 * quarterRemainPeriod;
+      delta = 3 * quarterRemainPeriod;
       this.isDeleting = true;
     } else if (this.isDeleting && this.txt === '') {
       this.isDeleting = false;
