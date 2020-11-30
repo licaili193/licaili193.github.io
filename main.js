@@ -50,9 +50,15 @@ class SlideCard {
             "slidecard__card-3": "pages/project-spoiled-kids.html", 
             "slidecard__card-4": "pages/project-the-misanthrope.html",
         };
+        var buttons = {
+            1: "resources/icons/button.png",
+            2: "resources/icons/ruler.png",
+            3: "resources/icons/scissor.png",
+            4: "resources/icons/cliper.png",
+        }
         for (i of [1, 2, 3, 4]) {
             var card = "<div class='card animate__animated' id='" + this.getCardName(i) + "'>\
-                       <button class='card-button'><img src='resources/icons/button.png'></button>\
+                       <button class='card-button'><img src='" + buttons[i] + "'></button>\
                        <img src='resources/images/card-" + String(i) + "-0.png'></div>";
             $("#" + parent).append(card);
             $("#" + this.getCardName(i)).css("visibility", "hidden");

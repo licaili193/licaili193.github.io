@@ -170,8 +170,8 @@ header {
     border: none;
     outline: none;
     padding: 0;
-    width: 4em;
-    height: 4em;
+    width: 8em;
+    height: 8em;
     -o-transition: .2s;
     transition: .2s;
     -webkit-transition: .2s;
@@ -179,8 +179,8 @@ header {
 }
 
 .card button img {
-    width: 4em;
-    height: 4em;
+    width: 8em;
+    height: 8em;
 }
 
 .card button:hover { 
