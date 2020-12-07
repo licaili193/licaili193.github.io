@@ -11,7 +11,37 @@ body {
 }
 
 h1 {
-    margin: 2em 0;
+    font-size: 4em;
+    font-family: 'Cabin Sketch';
+    color: #101010;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 0.8em;
+    font-family: 'Cinzel';
+    color: maroon;
+    text-align: center;
+}
+
+h3 {
+    font-size: 0.8em;
+    font-family: 'Cinzel';
+    color: #101010;
+    text-align: center;
+}
+
+.fancy-hr {
+    margin: 2em auto;
+    border: 0;
+    height: 4px;
+    background-image: radial-gradient(
+        rgba(20, 20, 20, 1), 
+        rgba(20, 20, 20, 0.5), 
+        rgba(20, 20, 20, 0), 
+        rgba(20, 20, 20, 0)
+    );
 }
 
 .preview-image {
@@ -34,6 +64,7 @@ h1 {
 .container {
     width: 95%;
     margin: 0 auto;
+    padding-top: 5em;
 }
 
 .grid {
@@ -150,5 +181,114 @@ h1 {
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
+    }
+}
+
+header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0.4em 10%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: white;
+    -webkit-box-shadow: 0 0 10px #A0A0A0;
+            box-shadow: 0 0 10px #A0A0A0;
+}
+
+.nav-bar a {
+    text-decoration: none;
+}
+
+.nav-bar img {
+    height: 3.0em;
+    margin-top: -1.2em;
+    margin-bottom: -1.2em;
+}
+
+.nav-bar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-bar ul li {
+    display: inline-block;
+    padding: 0 2em;
+    position: relative;
+    color: gray;
+    font-weight: bolder;
+    white-space: nowrap;
+}
+
+.nav-bar ul li a {
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    color: #101010;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-bar ul li a:hover {
+    color: #606060;
+}
+
+.menu-visiable-narrow svg {
+    display: block;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-visiable-narrow {
+    visibility: hidden;
+    display: none;
+}
+
+.drop-down {
+    z-index: 2;
+}
+
+.drop-down ul {
+    visibility: hidden;
+    display: none;
+    position: absolute;
+    background: white;
+    padding: 0;
+    transition: all 0.5s ease;
+}
+
+.drop-down:hover > ul,
+.drop-down ul:hover {
+    visibility: visible;
+    display: block;
+    -webkit-filter: drop-shadow(2px 2px 5px #222);
+    filter: drop-shadow(2px 2px 5px #222);
+}
+
+.drop-down ul li {
+    margin: 1em;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .menu-visiable-wide {
+        visibility: hidden;
+        display: none;
+    }
+    .menu-visiable-narrow {
+        visibility: visible;
+        display: block;
     }
 }
