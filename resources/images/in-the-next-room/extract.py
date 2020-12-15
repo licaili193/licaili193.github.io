@@ -4,7 +4,7 @@ import pyperclip
 path = os.path.dirname(os.path.realpath(__file__))
 files = os.listdir(path)
 for f in files[:]:
-    if not(f.endswith((".png", ".jpg", ".jpeg"))):
+    if not(f.endswith((".png", ".jpg", ".jpeg", ".JPG"))):
         files.remove(f)
 
 pyperclip.copy(str(files).replace(",", ",\n"))

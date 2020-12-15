@@ -65,6 +65,7 @@ h3 {
     width: 95%;
     margin: 0 auto;
     padding-top: 5em;
+    min-height: calc(100vh - 130px);
 }
 
 .grid {
@@ -133,7 +134,6 @@ h3 {
     to {transform:scale(1)}
 }
 
-/* Image Viewer */
 #image-viewer {
     display: none;
     position: fixed;
@@ -308,7 +308,8 @@ header {
 }
 
 .footer {
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
     padding: 0.5em;
     background: #181818;
 }
@@ -330,4 +331,9 @@ header {
     font-family: 'Montserrat';
     margin-top: 0.5em;
     margin-bottom: 0;
+}
+
+#page {
+    overflow-x: hidden;
+    min-height: 100vh;
 }
