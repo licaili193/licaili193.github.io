@@ -170,8 +170,8 @@ header {
     border: none;
     outline: none;
     padding: 0;
-    width: 8em;
-    height: 8em;
+    width: 100px;
+    height: 100px;
     -o-transition: .2s;
     transition: .2s;
     -webkit-transition: .2s;
@@ -179,8 +179,8 @@ header {
 }
 
 .card button img {
-    width: 8em;
-    height: 8em;
+    width: 100px;
+    height: 100px;
 }
 
 .card button:hover { 
@@ -349,6 +349,41 @@ header {
     .bounder div p {
         font-size: 0.8em;
     }
+}
+
+.inner-window {
+    display: block;
+    width: 90%;
+    height: calc(80% - 3em);
+    top: calc(50% + 4em);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 10px;
+    background: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -moz-box-shadow:    inset 0 0 10px #101010;
+    -webkit-box-shadow: inset 0 0 10px #101010;
+    box-shadow:         inset 0 0 10px #101010;
+}
+
+.inner-window::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+
+.inner-window::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: transparent;
+}
+
+.inner-window::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #A0A0A050;
 }
 
 #portrait {

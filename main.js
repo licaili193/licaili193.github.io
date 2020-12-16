@@ -169,4 +169,31 @@ $(document).ready(function() {
     });
 
     loadPage(0);
+
+    var elements = document.getElementsByClassName('txt-rotate');
+    var slides = document.getElementsByClassName('slideshow');
+    for (var i=0; i<elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-rotate');
+        var period = elements[i].getAttribute('data-period');
+        var toSlide = slides[i].getAttribute('data-rotate');
+        if (toRotate) {
+        new TxtRotate(elements[i], JSON.parse(toRotate), period, slides[i], JSON.parse(toSlide));
+        }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #F26921 }";
+    document.body.appendChild(css);
+
+    // Set Text Rotation
+    var words = document.getElementsByClassName('word');
+
+    words[currentWord].style.opacity = 1;
+    for (var i = 0; i < words.length; i++) {
+        splitLetters(words[i]);
+    }
+
+    changeWord(words);
+    setInterval(changeWord, 4000, words);
 });
