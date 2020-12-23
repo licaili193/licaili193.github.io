@@ -276,7 +276,10 @@ header {
 
 .drop-down ul {
     visibility: hidden;
-    display: none;
+    opacity: 0;
+    display: block;
+    -webkit-filter: drop-shadow(2px 2px 5px #222);
+    filter: drop-shadow(2px 2px 5px #222);
     position: absolute;
     background: white;
     padding: 0;
@@ -286,9 +289,7 @@ header {
 .drop-down:hover > ul,
 .drop-down ul:hover {
     visibility: visible;
-    display: block;
-    -webkit-filter: drop-shadow(2px 2px 5px #222);
-    filter: drop-shadow(2px 2px 5px #222);
+    opacity: 1;
 }
 
 .drop-down ul li {
@@ -296,7 +297,7 @@ header {
     display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .menu-visiable-wide {
         visibility: hidden;
         display: none;

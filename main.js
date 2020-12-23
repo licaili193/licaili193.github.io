@@ -3,6 +3,8 @@ var currentPage = 0;
 
 var cardIndex = 0;
 
+var toggleState=false;
+
 function isAtPage(page) {
     const delta = document.body.scrollHeight / 3;
     return page * delta <= document.body.scrollTop && (page + 1 ) * delta > document.body.scrollTop;
@@ -45,9 +47,9 @@ class SlideCard {
 
         var i = 0;
         var links = {
-            "slidecard__card-1": "pages/project-orlando.html", 
+            "slidecard__card-1": "pages/project-spoiled-kids.html", 
             "slidecard__card-2": "pages/project-in-the-next-room.html", 
-            "slidecard__card-3": "pages/project-spoiled-kids.html", 
+            "slidecard__card-3": "pages/project-orlando.html", 
             "slidecard__card-4": "pages/project-the-misanthrope.html",
         };
         var buttons = {
@@ -118,6 +120,19 @@ class SlideCard {
             }
         }
     }
+}
+
+function toggleExpand(){
+    if(toggleState==false){
+      document.getElementById('toggle-items').style.transform='scaleX(1)';
+      document.getElementById('toggle-button').style.transform='rotate(45deg)';
+        toggleState=true;
+  }
+    else{
+      document.getElementById('toggle-items').style.transform='scaleX(0)';
+      document.getElementById('toggle-button').style.transform='rotate(0deg)';
+	toggleState=false;
+  }
 }
 
 $(document).ready(function() {

@@ -200,6 +200,10 @@ header {
     filter: drop-shadow(2px 2px 5px #222);
 }
 
+.nav-bar {
+    height: 3.4em;
+}
+
 .nav-bar a {
     text-decoration: none;
 }
@@ -258,7 +262,10 @@ header {
 
 .drop-down ul {
     visibility: hidden;
-    display: none;
+    opacity: 0;
+    display: block;
+    -webkit-filter: drop-shadow(2px 2px 5px #222);
+    filter: drop-shadow(2px 2px 5px #222);
     position: absolute;
     background: white;
     padding: 0;
@@ -268,9 +275,7 @@ header {
 .drop-down:hover > ul,
 .drop-down ul:hover {
     visibility: visible;
-    display: block;
-    -webkit-filter: drop-shadow(2px 2px 5px #222);
-    filter: drop-shadow(2px 2px 5px #222);
+    opacity: 1;
 }
 
 .drop-down ul li {
@@ -278,7 +283,7 @@ header {
     display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .menu-visiable-wide {
         visibility: hidden;
         display: none;
@@ -294,6 +299,7 @@ header {
     width: 100%;
     margin-left: -4em;
     bottom: 0;
+    padding: 0.5em;
 }
 
 .dark-bg {
@@ -312,6 +318,35 @@ header {
 
 .footer a:hover {
     color: #A0A0A0;
+}
+
+.footer h2 {
+    font-size: 1.2em;
+    line-height: normal;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.footer h3 {
+    font-size: 1em;
+    line-height: normal;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.footer p {
+    font-size: 0.5em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.dark-bg h3 {
+    text-align: center;
+    font-weight: bold;
+    color: white;
 }
 
 .dark-bg p {
@@ -424,3 +459,33 @@ header {
     -o-background-size: cover;
     background-size: cover;
 }
+
+/* toggle menu */
+.toggle-menu{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+ }
+
+.toggle-button {
+    transition: 1s;
+    margin-left: 0;
+    margin-right: 0.5em;
+    line-height: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.toggle-items {
+    display: flex;
+    flex-direction: row;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.5s;
+    align-items: center;
+ }
+
+.toggle-items a{
+    margin-left: 1.0em;
+    margin-right: 1.0em;
+ }
