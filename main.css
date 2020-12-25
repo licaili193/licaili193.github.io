@@ -217,6 +217,7 @@ header {
 .nav-bar ul {
     list-style: none;
     padding: 0;
+    white-space: nowrap;
 }
 
 .nav-bar ul li {
@@ -386,51 +387,6 @@ header {
     }
 }
 
-.inner-window {
-    display: block;
-    width: 90%;
-    height: calc(80% - 3em);
-    top: calc(50% + 4em);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    border-radius: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: #AAAAAA55;
-    filter: drop-shadow(2px 2px 1px #AAA);
-    -webkit-filter: drop-shadow(2px 2px 1px #AAA);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.inner-window::-webkit-scrollbar-track
-{
-	background-color: transparent;
-}
-
-.inner-window::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: transparent;
-}
-
-.inner-window::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #A0A0A050;
-}
-
-#portrait {
-    display: block;
-    width: auto;
-    height: 90%;
-    position: absolute;
-    top: 7em;
-    left: 40vw;
-}
-
 #first-name {
     display: block;
     position: absolute;
@@ -454,6 +410,14 @@ header {
 
 #section-2 {
     background: url(resources/images/sketch.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#section-3 {
+    background: url(resources/images/photo-wall.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -489,3 +453,261 @@ header {
     margin-left: 1.0em;
     margin-right: 1.0em;
  }
+
+ /* image flexbox */
+.inner-window {
+    display: flex;
+    align-items: stretch;
+    width: calc(85vw - 3em);
+    height: calc(85vh - 3em);
+    top: calc(50vh + 2em);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 10px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background: #AAAAAA55;
+    filter: drop-shadow(2px 2px 1px #AAA);
+    -webkit-filter: drop-shadow(2px 2px 1px #AAA);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.inner-window h2 {
+    font-size: 2em;
+    line-height: normal;
+    font-family: 'Cabin Sketch';
+    color: #101010;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.inner-window h3 {
+    font-size: 1.2em;
+    line-height: normal;
+    font-family: 'Cinzel';
+    color: darkred;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.grid-col {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding: 0 .5em;
+}
+
+.grid-col--2, .grid-col--3 {
+    display: none;
+}
+
+.grid-item {
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+@media (min-width: 768px) {
+    .grid-col--2 { display: block; }
+}
+
+@media (min-width: 1080px) {
+    .grid-col--3 { display: block; }
+}
+
+.image-preview {
+    position: relative;
+    margin-bottom: .5em;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.magnify-glass {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #303030A0;
+    transition: .2s;
+}
+
+.magnify-glass:hover {
+    opacity: 1;
+}
+
+.magnify-glass img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: invert(1);
+}
+
+#image-viewer {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+#image-viewer .modal-content {
+    display: block;
+    max-height: 90vh;
+    max-width: 90vw;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#image-viewer .viewer-button {
+    position: absolute;
+    color: #f1f1f1;
+    font-size: 4em;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+#image-viewer .viewer-button:hover,
+#image-viewer .viewer-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#image-viewer #close {
+    top: 5vmin;
+    right: 5vmin;
+}
+
+.inner-window-right {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.inner-window-right::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+
+.inner-window-right::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: transparent;
+}
+
+.inner-window-right::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #A0A0A050;
+}
+
+.inner-window-left {
+    width: 250px;
+    height: 100%;
+    max-width: 250px;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #101010B0;
+    padding: 20px;
+}
+
+.left-box-menu {
+    margin: 5px;
+    font-size: 18px;
+    font-family: 'Cabin Sketch';
+    font-weight: bold;
+    color: white;
+    display: block;
+    position: relative;
+    padding-right: 35px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .inner-window-left {
+        width: calc(100% - 40px);
+        max-width: none;
+        min-width: none;
+        height: 150px;
+        max-height: 150px;
+        min-height: 150px;
+        justify-content: center;
+    }
+
+    .inner-window {
+        flex-direction: column;
+    }
+}
+
+/* Hide the browser's default radio button */
+.left-box-menu input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    display: block;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+  
+/* On mouse-over, add a grey background color */
+.left-box-menu:hover input ~ .checkmark {
+    color: gray;
+}
+  
+/* Show the indicator (dot/circle) when checked */
+.left-box-menu input:checked ~ .checkmark {
+    color: white;
+}
+
+.left-box-block {
+    display: none;
+}
+
+#block-1 {
+    display: block;
+}

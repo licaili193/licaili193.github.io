@@ -124,15 +124,27 @@ class SlideCard {
 
 function toggleExpand(){
     if(toggleState==false){
-      document.getElementById('toggle-items').style.transform='scaleX(1)';
-      document.getElementById('toggle-button').style.transform='rotate(45deg)';
+        document.getElementById('toggle-items').style.transform='scaleX(1)';
+        document.getElementById('toggle-button').style.transform='rotate(45deg)';
         toggleState=true;
-  }
-    else{
-      document.getElementById('toggle-items').style.transform='scaleX(0)';
-      document.getElementById('toggle-button').style.transform='rotate(0deg)';
-	toggleState=false;
-  }
+    }
+        else{
+        document.getElementById('toggle-items').style.transform='scaleX(0)';
+        document.getElementById('toggle-button').style.transform='rotate(0deg)';
+        toggleState=false;
+    }
+}
+
+function toggleBlocks(input){
+    var blocks = document.getElementsByClassName("left-box-block");
+    document.getElementsByClassName("inner-window-right")[0].scrollTop = 0;
+    Array.prototype.forEach.call(blocks, function(b) {
+        if (b.getAttribute("id") == input.getAttribute("tag") && input.checked) {
+            b.style.display = "block";
+        } else {
+            b.style.display = "none";
+        }
+    });
 }
 
 $(document).ready(function() {
@@ -201,14 +213,44 @@ $(document).ready(function() {
     css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #F26921 }";
     document.body.appendChild(css);
 
-    // Set Text Rotation
-    var words = document.getElementsByClassName('word');
-
-    words[currentWord].style.opacity = 1;
-    for (var i = 0; i < words.length; i++) {
-        splitLetters(words[i]);
+    var grid = document.getElementsByClassName('grid');
+    for (let g of grid) {
+        var images = JSON.parse(g.getAttribute("images"));
+        var index = g.getAttribute("index");
+        g.insertAdjacentHTML('beforeend', "\
+            <div class='grid-col grid-col--1 cgc-" + index + "'></div>\
+            <div class='grid-col grid-col--2 cgc-" + index + "'></div>\
+            <div class='grid-col grid-col--3 cgc-" + index + "'></div>\
+        ");
+        images.images.forEach(i => {
+            var child = "\
+            <div class='grid-item cgi-" + index + "'>\
+                    <div class='image-preview'>\
+                        <div class='magnify-glass'>\
+                            <img src='resources/icons/zoom_in-24px.svg'>\
+                        </div>\
+                        <img class='boxed-img' src='" + i + "'>\
+                    </div>\
+                </div>\
+            ";
+            g.insertAdjacentHTML('beforeend', child);
+        });
+        var colc1 = new Colcade( '.cg-' + index, {
+            columns: '.cgc-' + index,
+            items: '.cgi-' + index
+        });
     }
 
-    changeWord(words);
-    setInterval(changeWord, 4000, words);
+    $(".image-preview").click(function(){
+        $("#full-image").attr("src", $(this).find(".boxed-img").attr("src"));
+        $('#image-viewer').show();
+    });
+    
+    $("#full-image").click(function(e){
+        e.stopPropagation();
+    });
+
+    $("#image-viewer").click(function(){
+        $('#image-viewer').hide();
+    });
 });

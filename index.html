@@ -10,15 +10,14 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="slideshow.css">
     <link rel="stylesheet" type="text/css" href="typing.css">
-    <link rel="stylesheet" type="text/css" href="rotate.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin+Sketch">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/colcade@0/colcade.js"></script>
     <script src="main.js"></script>
     <script src="typing.js"></script>
-    <script src="rotate.js"></script>
 </head>
 <body>
     <header>
@@ -29,9 +28,9 @@
                         <img src="resources/images/sign-2.png"></img>
                     </a>
                 </li>
-                <li><a href="#section-1">Design</a></li>
-                <li><a href="#section-2">Work</a></li>
-                <li><a href="#section-3">Info</a></li>
+                <li><a href="#section-1">Costume Concept</a></li>
+                <li><a href="#section-2">Costume Construction</a></li>
+                <li><a href="#section-3">About Me</a></li>
                 <li>
                     <div class="toggle-menu" >
                         <a href="#" class="toggle-button" id="toggle-button" onclick="toggleExpand()">
@@ -52,9 +51,9 @@
                         </svg>
                     </a>
                     <ul>
-                        <li><a href="#section-1">Design</a></li>
-                        <li><a href="#section-2">Work</a></li>
-                        <li><a href="#section-3">Info</a></li>
+                        <li><a href="#section-1">Costume Concept</a></li>
+                        <li><a href="#section-2">Costume Construction</a></li>
+                        <li><a href="#section-3">About Me</a></li>
                         <li><hr></li>
                         <li><a href="pages/project-spoiled-kids.html">Portfolios</a></li>
                         <li><a href="#">Download Resume</a></li>
@@ -115,33 +114,123 @@
         </div>
     </section>
     <section id="section-2">
-        <div class="rotate-text">
-            <span class="word wisteria">tasty.</span>
-            <span class="word belize">wonderful.</span>
-            <span class="word pomegranate">fancy.</span>
-            <span class="word green">beautiful.</span>
-            <span class="word midnight">cheap.</span>
+        <div id="image-viewer">
+            <span class="viewer-button" id="close">&times;</span>
+            <img class="modal-content" id="full-image">
         </div>
         <div class="inner-window">
-            <h2>
-                asdasd<br>
-                asdasdas<br>
-                asdasdasdas<br>
-                asdasdasdasas<br>
-                asdasdasdas<br>
-                asd<br>
-                asdasd<br>
-                asdasd<br>
-                asd<br>
-                asdasdasdas<br>
-                asd<br>
-                asdasd<br>
-                asdasdasdas<br>
-                asdasd<br>
-                asdasd<br>
-                asdfasdads<br>
-                adsads
-            </h2>
+            <div class="inner-window-left">
+                <label class="left-box-menu">Stage
+                    <input type="radio" checked="checked" name="radio" tag="block-1" onclick="toggleBlocks(this)">
+                    <span class="checkmark">&#10003;</span>
+                </label>
+                <label class="left-box-menu">Millinery
+                    <input type="radio" name="radio" tag="block-2" onclick="toggleBlocks(this)">
+                    <span class="checkmark">&#10003;</span>
+                </label>
+                <label class="left-box-menu">Styling
+                    <input type="radio" name="radio" tag="block-3" onclick="toggleBlocks(this)">
+                    <span class="checkmark">&#10003;</span>
+                </label>
+                <label class="left-box-menu">Metal Jewelry
+                    <input type="radio" name="radio" tag="block-4" onclick="toggleBlocks(this)">
+                    <span class="checkmark">&#10003;</span>
+                </label>
+                <label class="left-box-menu">3D Construction
+                    <input type="radio" name="radio" tag="block-5" onclick="toggleBlocks(this)">
+                    <span class="checkmark">&#10003;</span>
+                </label>
+            </div>
+            <div class="inner-window-right">
+                <div class="left-box-block" id="block-1">
+                    <h2>Stage</h2>
+                    <h3>In The Height</h3>
+                    <div class="grid cg-1" images='{"images": [
+                        "resources/images/miscellaneous/in-the-height/IMG_0674.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0687.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0690.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0691.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0722.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0724.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0757.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0761.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0811.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0814.jpg",
+                        "resources/images/miscellaneous/in-the-height/IMG_0895.jpg"]}' index="1">
+                    </div>
+                    <h3>Blood And Ink</h3>
+                    <div class="grid cg-2" images='{"images": [
+                        "resources/images/miscellaneous/blood-and-ink/IMG_0056.jpg",
+                        "resources/images/miscellaneous/blood-and-ink/IMG_3179.JPG",
+                        "resources/images/miscellaneous/blood-and-ink/IMG_3181.JPG",
+                        "resources/images/miscellaneous/blood-and-ink/IMG_3182.JPG",
+                        "resources/images/miscellaneous/blood-and-ink/IMG_3184.JPG",
+                        "resources/images/miscellaneous/blood-and-ink/IMG_3186.JPG"]}' index="2">
+                    </div>
+                    <h3>Incubus</h3>
+                    <div class="grid cg-3" images='{"images": [
+                        "resources/images/miscellaneous/incubus/IMG_8208.jpeg",
+                        "resources/images/miscellaneous/incubus/IMG_9889.JPG",
+                        "resources/images/miscellaneous/incubus/IMG_9890.JPG",
+                        "resources/images/miscellaneous/incubus/IMG_9891.JPG"]}' index="3">
+                    </div>
+                </div>
+                <div class="left-box-block" id="block-2">
+                    <h2>Millinery</h2>
+                    <div class="grid cg-4" images='{"images": [
+                        "resources/images/miscellaneous/millinery/20200919_124438.jpeg",
+                        "resources/images/miscellaneous/millinery/20200919_125531.jpeg",
+                        "resources/images/miscellaneous/millinery/20201006_163320.jpeg",
+                        "resources/images/miscellaneous/millinery/20201106_084723.jpg",
+                        "resources/images/miscellaneous/millinery/IMG_0531.JPG",
+                        "resources/images/miscellaneous/millinery/IMG_0527.jpg",
+                        "resources/images/miscellaneous/millinery/IMG_0532.JPG",
+                        "resources/images/miscellaneous/millinery/20201106_084850_mr1604699137543.jpg",
+                        "resources/images/miscellaneous/millinery/20201122_125356.jpg",
+                        "resources/images/miscellaneous/millinery/20201122_125421.jpg"]}' index="4">
+                    </div>
+                </div>
+                <div class="left-box-block" id="block-3">
+                    <h2>Styling</h2>
+                    <div class="grid cg-5" images='{"images": [
+                        "resources/images/miscellaneous/styling/4D19DC67-F510-4B07-B601-2C855F8F558F-1676-00000130522E2498.jpeg",
+                        "resources/images/miscellaneous/styling/CLuTw-tiw_TdMlgNJRGImg62uhp7F-SL5piknsO_C48.jpeg",
+                        "resources/images/miscellaneous/styling/g8pEx8cjFZj-IwUfx6Z05acvP9x1IXDjrNQcmai_Wck.jpeg",
+                        "resources/images/miscellaneous/styling/IMG_4625.JPG",
+                        "resources/images/miscellaneous/styling/IMG_4627.JPG",
+                        "resources/images/miscellaneous/styling/IMG_4631.JPG",
+                        "resources/images/miscellaneous/styling/jgc.jpg",
+                        "resources/images/miscellaneous/styling/Sp3NfAGINEDgPSwj4Bck6x_B1dr5tH2ncDfUObseJiE.jpeg",
+                        "resources/images/miscellaneous/styling/zRwH8ObJgBvEcDrS7DRvkY6iHNhCGO1nRTFn6S8gGF0.jpeg"]}' index="5">
+                    </div>
+                </div>
+                <div class="left-box-block" id="block-4">
+                    <h2>Metal Jewelry</h2>
+                    <div class="grid cg-6" images='{"images": [
+                        "resources/images/miscellaneous/metal-jewelry/IMG_6283.JPG",
+                        "resources/images/miscellaneous/metal-jewelry/IMG_6290.JPG",
+                        "resources/images/miscellaneous/metal-jewelry/IMG_6294.JPG",
+                        "resources/images/miscellaneous/metal-jewelry/IMG_6295.JPG",
+                        "resources/images/miscellaneous/metal-jewelry/IMG_6299.JPG"]}' index="6">
+                    </div>
+                </div>
+                <div class="left-box-block" id="block-5">
+                    <h2>3D Construction</h2>
+                    <div class="grid cg-7" images='{"images": [
+                        "resources/images/miscellaneous/3d-construction/20201027_114541.jpg",
+                        "resources/images/miscellaneous/3d-construction/20201208_114556.jpg",
+                        "resources/images/miscellaneous/3d-construction/20201208_114559.jpg",
+                        "resources/images/miscellaneous/3d-construction/IMG_1183.jpg",
+                        "resources/images/miscellaneous/3d-construction/IMG_1194.jpg",
+                        "resources/images/miscellaneous/3d-construction/IMG_1198.jpg",
+                        "resources/images/miscellaneous/3d-construction/IMG_1202.jpg",
+                        "resources/images/miscellaneous/3d-construction/IMG_1207.jpg",
+                        "resources/images/miscellaneous/3d-construction/IMG_1656.JPG",
+                        "resources/images/miscellaneous/3d-construction/IMG_8641.JPG",
+                        "resources/images/miscellaneous/3d-construction/IMG_9454.jpg"]}' index="7">
+                    </div>
+                </div>
+            </div>
         </div>   
         <div class="footer">
             <a href="#section-3">
@@ -153,7 +242,6 @@
         <h3 id="last-name">Xiong</h3>
         <h2 id="first-name">Ting</h2>
         <p id="introduction">Costume Designer</p>
-        <img id="portrait" src="resources/images/tina.png" alt="Dummy 1">
         <div class="footer dark-bg">
             <h3>©  Ting Xiong.  All rights reserved.</h3>
             <p>Made with ❤ by Caili</p>

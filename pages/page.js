@@ -16,8 +16,8 @@ function loadPage(title, author, info) {
         });
         
         var colc = new Colcade( '.grid', {
-        columns: '.grid-col',
-        items: '.grid-item'
+            columns: '.grid-col',
+            items: '.grid-item'
         });
         
         $(".grid-item img").click(function(){
