@@ -606,6 +606,16 @@ header {
     right: 5vmin;
 }
 
+#image-viewer #left {
+    top: 50%;
+    left: 5vw;
+}
+
+#image-viewer #right {
+    top: 50%;
+    right: 5vw;
+}
+
 .inner-window-right {
     overflow-y: auto;
     overflow-x: hidden;

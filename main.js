@@ -2,8 +2,9 @@ var previousPage = 0;
 var currentPage = 0;
 
 var cardIndex = 0;
+var toggleState = false;
 
-var toggleState=false;
+var imagePreviewBlock = 0;
 
 function isAtPage(page) {
     const delta = document.body.scrollHeight / 3;
@@ -222,18 +223,20 @@ $(document).ready(function() {
             <div class='grid-col grid-col--2 cgc-" + index + "'></div>\
             <div class='grid-col grid-col--3 cgc-" + index + "'></div>\
         ");
+        var count = 0;
         images.images.forEach(i => {
             var child = "\
             <div class='grid-item cgi-" + index + "'>\
-                    <div class='image-preview'>\
+                    <div class='image-preview' block='" + g.getAttribute("index") + "' index='" + count + "'>\
                         <div class='magnify-glass'>\
                             <img src='resources/icons/zoom_in-24px.svg'>\
                         </div>\
-                        <img class='boxed-img' src='" + i + "'>\
+                        <img class='boxed-img' src='" + i + "' >\
                     </div>\
                 </div>\
             ";
             g.insertAdjacentHTML('beforeend', child);
+            count++;
         });
         var colc1 = new Colcade( '.cg-' + index, {
             columns: '.cgc-' + index,
@@ -243,14 +246,34 @@ $(document).ready(function() {
 
     $(".image-preview").click(function(){
         $("#full-image").attr("src", $(this).find(".boxed-img").attr("src"));
+        imagePreviewBlock = $(this).attr("block");
+        $(".cg-" + imagePreviewBlock).first().attr("select-index", $(this).attr("index"));
         $('#image-viewer').show();
     });
-    
-    $("#full-image").click(function(e){
-        e.stopPropagation();
-    });
 
-    $("#image-viewer").click(function(){
+    $("#image-viewer #close").click(function(){
         $('#image-viewer').hide();
+    });
+    
+    $("#image-viewer #left").click(function(){
+        var index = $(".cg-" + imagePreviewBlock).first().attr("select-index");
+        var images = JSON.parse($(".cg-" + imagePreviewBlock).first().attr("images"));
+        index--;
+        if (index < 0) {
+            index = images.images.length - 1;
+        }
+        $("#full-image").attr("src", images.images[index]);
+        $(".cg-" + imagePreviewBlock).first().attr("select-index", index);
+    });
+    
+    $("#image-viewer #right").click(function(){
+        var index = $(".cg-" + imagePreviewBlock).first().attr("select-index");
+        var images = JSON.parse($(".cg-" + imagePreviewBlock).first().attr("images"));
+        index++;
+        if (index >= images.images.length) {
+            index = 0;
+        }
+        $("#full-image").attr("src", images.images[index]);
+        $(".cg-" + imagePreviewBlock).first().attr("select-index", index);
     });
 });
