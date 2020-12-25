@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 body {
     margin: 0;
     font-family: 'Montserrat';
@@ -36,6 +43,12 @@ h3 {
     margin: 2em auto;
     border: 0;
     height: 4px;
+    background-image: -o-radial-gradient(
+        rgba(20, 20, 20, 1), 
+        rgba(20, 20, 20, 0.5), 
+        rgba(20, 20, 20, 0), 
+        rgba(20, 20, 20, 0)
+    );
     background-image: radial-gradient(
         rgba(20, 20, 20, 1), 
         rgba(20, 20, 20, 0.5), 
@@ -125,13 +138,20 @@ h3 {
 }
 
 .modal-content { 
-    animation-name: zoom;
-    animation-duration: 0.6s;
+    -webkit-animation-name: zoom; 
+            animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+            animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0);transform:scale(0)} 
+    to {-webkit-transform:scale(1);transform:scale(1)}
 }
 
 @keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
+    from {-webkit-transform:scale(0);transform:scale(0)} 
+    to {-webkit-transform:scale(1);transform:scale(1)}
 }
 
 #image-viewer {
@@ -166,6 +186,8 @@ h3 {
     color: #f1f1f1;
     font-size: 4em;
     font-weight: bold;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
     transition: 0.3s;
     z-index: 2;
 }
@@ -262,7 +284,9 @@ header {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 
 .menu-visiable-narrow {
@@ -283,6 +307,8 @@ header {
     position: absolute;
     background: white;
     padding: 0;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 
